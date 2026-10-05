@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: rag-backend:v2.0
+        image: localhost/rag-backend:v2.0
         imagePullPolicy: IfNotPresent
         env:
         # 基于 K8s 集群 DNS 服务名进行零硬编码通信
@@ -79,7 +79,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: rag-frontend:v2.0
+        image: localhost/rag-frontend:v2.0
         imagePullPolicy: IfNotPresent
         env:
         - name: BACKEND_ADDR
