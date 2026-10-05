@@ -1,0 +1,32 @@
+# --- 为etcd创建PV ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: milvus-etcd-pv
+spec:
+  capacity: { storage: 10Gi }
+  accessModes: [ReadWriteOnce]
+  persistentVolumeReclaimPolicy: Retain
+  hostPath: { path: "/data/milvus-etcd" }
+---
+# --- 为minio创建PV ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: milvus-minio-pv
+spec:
+  capacity: { storage: 20Gi }
+  accessModes: [ReadWriteOnce]
+  persistentVolumeReclaimPolicy: Retain
+  hostPath: { path: "/data/milvus-minio" }
+---
+# --- 为standalone组件创建PV ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: milvus-standalone-pv
+spec:
+  capacity: { storage: 50Gi }
+  accessModes: [ReadWriteOnce]
+  persistentVolumeReclaimPolicy: Retain
+  hostPath: { path: "/data/milvus-standalone" }
